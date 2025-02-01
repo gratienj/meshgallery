@@ -1,0 +1,90 @@
+{% set tagName = [data.get('name')] %}
+{% set level = ["~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+                "________________________________________________________________",
+                "################################################################",
+                "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+                "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
+                "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",
+                "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::",
+                "''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''",
+                "****************************************************************"] %}
+
+{% for i in data.findall("interface") %}
+Implement interface  :index:`{{i.get('name')}}`
+{% endfor %}
+
+{{data.find('description').text}}
+
+{% if  data.find("options") != None %}
+
+{% if  data.find("interface") != None %}
+*List of available option(s) for this service:*
+{% else %}
+*List of available option(s) for this module:*
+{% endif %}
+
+{% for o in data.find("options") recursive  %}
+{% if  o.get('name') %}
+
+{{o.get('name')}}
+{{level[loop.depth0]}}
+
+{% if  o.tag in ['extended','enumeration'] %}
+This is an **{{o.tag}}** option.
+{% else %}
+This is a **{{o.tag}}** option.
+{% endif %}
+
+- *Parent tag:*  <{{tagName[loop.depth0]}}> 
+{%- if o.get('minOccurs') %}
+- *Minimun occurence:*  {{o.get('minOccurs')}} 
+{% endif %}
+{% if o.get('maxOccurs') %}
+- *Maximun occurence:*  {{o.get('maxOccurs')}} 
+{% endif %}
+{% if o.tag != 'complex' %}
+- *Type:* {{o.get('type')}}
+{% endif %}
+{% if o.get('unit') %}
+- *Unit:* {{o.get('unit')}}
+{% endif %}
+{% if o.get('optional') %}
+- *Optional:* {{o.get('optional')}}
+{% endif %}
+{% if o.get('default') %}
+{% if o.get('type') == 'real' %}
+- *Default (SI units):* {{o.get('default')}}
+{% else %}
+- *Default:* {{o.get('default')}}
+{% endif %}
+{% endif -%}
+
+{% if o.find('description')  != None %}
+{{o.find('description').text}}
+{% endif %}
+
+{% if o.tag == 'enumeration' %}
+.. list-table:: What's in stock
+   :header-rows: 1
+
+   * - value
+     - description  
+   {% for item in o %}
+   {% if  item.tag == 'enumvalue' %}
+   * - {{ item.get('name') }}
+     - {{ item.find('description').text }}
+   {% endif %}
+   {% endfor %}
+{% endif %}
+
+{% if o.tag == 'complex' %}
+{% set tmp = tagName.append(o.get('name')) %}
+{{ loop(o) }}
+{% set tmp = tagName.pop() %}
+
+{% endif %} {# if complex #}
+
+{% endif %} {# if has name attrib #}
+{% endfor %} {# loop on options #}
+{% endif %} {# if has options #}
