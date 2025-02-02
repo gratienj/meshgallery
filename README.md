@@ -2,7 +2,7 @@
 
 
 
-[Exa Mesh GALLERY online documentation](https://gratienj.github.io/doc/meshgallery/index.html)
+[Exa Mesh GALLERY online documentation](https://gratienj.github.io/meshgallery/)
 
 
 This project provides various meshes that can be freely used to develop and validate tools for exascale simulation.
