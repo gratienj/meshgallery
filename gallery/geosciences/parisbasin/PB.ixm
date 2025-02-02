@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<ixm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:ixm_v4.xsd" version="V4">
+	<unstructured-grid dimension="3Dxyz">
+		<mesh>
+			<topology>
+				<nodes>
+					<node-ids>
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/topology/nodes/node-ids
+						</data>
+					</node-ids>
+					<coords>
+						<data format="hdf" type="real3">
+							PB.h5:/mesh/topology/nodes/coords
+						</data>
+					</coords>
+				</nodes>
+				<cells>
+					<cell-types>
+						<data format="hdf" type="int32">
+							PB.h5:/mesh/topology/cells/cell-types
+						</data>
+					</cell-types>
+					<cell-ids>
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/topology/cells/cell-ids
+						</data>
+					</cell-ids>
+					<node-ids>
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/topology/cells/node-ids
+						</data>
+					</node-ids>
+				</cells>
+				<faces>
+					<face-types>
+						<data format="hdf" type="int32">
+							PB.h5:/mesh/topology/faces/face-types
+						</data>
+					</face-types>
+					<face-ids>
+						<data format="hdf" type="int64">
+								PB.h5:/mesh/topology/faces/face-ids
+						</data>
+					</face-ids>
+					<node-ids>
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/topology/faces/node-ids
+						</data>
+					</node-ids>
+				</faces>
+			</topology>
+			<properties>
+				<property name="FACIES" kind="cell">
+					<support group-name="AllCells">
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/properties/FACIES/support
+						</data>
+					</support>
+					<values>
+						<data format="hdf" type="int64">
+						PB.h5:/mesh/properties/FACIES/values
+						</data>
+					</values>
+				</property>
+				<property name="Stratigraphy" kind="cell">
+					<support group-name="AllCells">
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/properties/Stratigraphy/support
+						</data>
+					</support>
+					<values>
+						<data format="hdf" type="real">
+						PB.h5:/mesh/properties/Stratigraphy/values
+						</data>
+					</values>
+				</property>
+				<property name="ACTNUM_GEOMETRY" kind="cell">
+					<support group-name="AllCells">
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/properties/ACTNUM_GEOMETRY/support
+						</data>
+					</support>
+					<values>
+						<data format="hdf" type="int64">
+						PB.h5:/mesh/properties/ACTNUM_GEOMETRY/values
+						</data>
+					</values>
+				</property>
+				<property name="Geom_LABEL" kind="face">
+					<support group-name="AllFaces">
+						<data format="hdf" type="int64">
+								PB.h5:/mesh/properties/Geom_LABEL/support
+						</data>
+					</support>
+					<values>
+						<data format="hdf" type="int64">
+								PB.h5:/mesh/properties/Geom_LABEL/values
+						</data>
+					</values>
+				</property>
+				<property name="indexI" kind="cell">
+					<support group-name="AllCells">
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/properties/indexI/support
+						</data>
+					</support>
+					<values>
+						<data format="hdf" type="int64">
+						PB.h5:/mesh/properties/indexI/values
+						</data>
+					</values>
+				</property>
+				<property name="indexJ" kind="cell">
+					<support group-name="AllCells">
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/properties/indexJ/support
+						</data>
+					</support>
+					<values>
+						<data format="hdf" type="int64">
+						PB.h5:/mesh/properties/indexJ/values
+						</data>
+					</values>
+				</property>
+				<property name="indexK" kind="cell">
+					<support group-name="AllCells">
+						<data format="hdf" type="int64">
+							PB.h5:/mesh/properties/indexK/support
+						</data>
+					</support>
+					<values>
+						<data format="hdf" type="int64">
+						PB.h5:/mesh/properties/indexK/values
+						</data>
+					</values>
+				</property>
+			</properties>
+		</mesh>
+	</unstructured-grid>
+</ixm>
