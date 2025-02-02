@@ -1,7 +1,25 @@
-# Documentation example
-
-We use this example in the lesson
-[How to document your research software](https://coderefinery.github.io/documentation/).
+# Exa Mesh Gallery project
 
 
-[Exa Mesh GALLEY](https://gratienj.github.io/doc/meshgallery/html)
+
+[Exa Mesh GALLERY online documenation](https://gratienj.github.io/doc/meshgallery/html)
+
+
+This project provides various meshes that can be freely used to develop and validate tools for exascale simulation.
+
+Meshes are provided with diffrent format and tools to generate them 
+
+Project structure :
+```bash
+.
+├── doc
+├── gallery
+│   ├── geosciences
+│   │   ├── northsea
+│   │   ├── parisbasin
+│   │   └── spe11
+│   └── toymeshes
+│       └── sphere
+├── LICENSE
+├── README.md
+```
